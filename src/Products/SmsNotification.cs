@@ -5,13 +5,13 @@ namespace DesignPatternChallenge.Products
 {
     public class SmsNotification : INotification
     {
-        public string PhoneNumber { get; set; }
-        public string Message { get; set; }
+        public required string PhoneNumber { get; set; }
+        public required string Message { get; set; }
 
         public void Send()
         {
-            Console.WriteLine($"📱 Enviando SMS para {PhoneNumber}");
-            Console.WriteLine($"   Mensagem: {Message}");
+            Console.WriteLine($"📱 Sending SMS to {PhoneNumber}");
+            Console.WriteLine($"   Message: {Message}");
         }
     }
 }

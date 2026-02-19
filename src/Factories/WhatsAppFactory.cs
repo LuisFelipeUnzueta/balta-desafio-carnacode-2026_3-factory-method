@@ -5,7 +5,7 @@ namespace DesignPatternChallenge.Factories
 {
     public class WhatsAppFactory : NotificationFactory
     {
-        public override INotification Create(string recipient, string message, string subject = null)
+        public override INotification Create(string recipient, string message, string? subject = null)
         {
             return new WhatsAppNotification
             {

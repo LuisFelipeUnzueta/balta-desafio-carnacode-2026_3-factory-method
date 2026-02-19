@@ -5,29 +5,29 @@ namespace DesignPatternChallenge.Services
 {
     public class NotificationService
     {
-        public void SendOrderConfirmation(NotificationFactory factory, string recipient, string orderNumber)
+        public static void SendOrderConfirmation(NotificationFactory factory, string recipient, string orderNumber)
         {
-            var subject = "Confirmação de Pedido";
-            var message = $"Seu pedido {orderNumber} foi confirmado!";
-            
-            // O Factory decide como criar a notificação específica
+            var subject = "Order Confirmation";
+            var message = $"Your order {orderNumber} has been confirmed!";
+
+            // The Factory decides how to create the specific notification
             var notification = factory.Create(recipient, message, subject);
             notification.Send();
         }
 
-        public void SendShippingUpdate(NotificationFactory factory, string recipient, string trackingCode)
+        public static void SendShippingUpdate(NotificationFactory factory, string recipient, string trackingCode)
         {
-            var subject = "Pedido Enviado";
-            var message = $"Seu pedido foi enviado! Código de rastreamento: {trackingCode}";
+            var subject = "Order Shipped";
+            var message = $"Your order has been shipped! Tracking code: {trackingCode}";
 
             var notification = factory.Create(recipient, message, subject);
             notification.Send();
         }
 
-        public void SendPaymentReminder(NotificationFactory factory, string recipient, decimal amount)
+        public static void SendPaymentReminder(NotificationFactory factory, string recipient, decimal amount)
         {
-            var subject = "Lembrete de Pagamento";
-            var message = $"Você tem um pagamento pendente de R$ {amount:N2}";
+            var subject = "Payment Reminder";
+            var message = $"You have a pending payment of {amount:C2}";
 
             var notification = factory.Create(recipient, message, subject);
             notification.Send();
